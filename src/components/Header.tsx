@@ -13,8 +13,6 @@ export const Header = ({ activeSection, onNavigate }: HeaderProps) => {
   const navigation = [
     { id: "inicio", label: "Início" },
     { id: "funcoes", label: "Funções" },
-    { id: "atividades", label: "Atividades" },
-    { id: "sobre", label: "Sobre" },
   ];
 
   return (

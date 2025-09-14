@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { FunctionsSection } from "@/components/FunctionsSection";
-import { ActivitiesSection } from "@/components/ActivitiesSection";
-import { AboutSection } from "@/components/AboutSection";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
@@ -35,14 +33,6 @@ const Index = () => {
         
         <section id="funcoes">
           <FunctionsSection />
-        </section>
-        
-        <section id="atividades">
-          <ActivitiesSection />
-        </section>
-        
-        <section id="sobre">
-          <AboutSection />
         </section>
       </main>
 
