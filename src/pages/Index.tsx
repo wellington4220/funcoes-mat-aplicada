@@ -1,12 +1,63 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Header } from "@/components/Header";
+import { HeroSection } from "@/components/HeroSection";
+import { FunctionsSection } from "@/components/FunctionsSection";
+import { ActivitiesSection } from "@/components/ActivitiesSection";
+import { AboutSection } from "@/components/AboutSection";
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState("inicio");
+
+  const handleNavigate = (section: string) => {
+    setActiveSection(section);
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleExploreClick = () => {
+    setActiveSection("funcoes");
+    const element = document.getElementById("funcoes");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header activeSection={activeSection} onNavigate={handleNavigate} />
+      
+      <main>
+        <section id="inicio">
+          <HeroSection onExploreClick={handleExploreClick} />
+        </section>
+        
+        <section id="funcoes">
+          <FunctionsSection />
+        </section>
+        
+        <section id="atividades">
+          <ActivitiesSection />
+        </section>
+        
+        <section id="sobre">
+          <AboutSection />
+        </section>
+      </main>
+
+      <footer className="border-t bg-secondary/30 py-8">
+        <div className="container text-center">
+          <p className="text-muted-foreground">
+            Desenvolvido com ❤️ por{" "}
+            <span className="font-semibold text-primary">Wellgingthon</span>
+            {" "}- ADS IFPE Paulista, Pernambuco
+          </p>
+          <p className="text-sm text-muted-foreground mt-2">
+            Projeto educativo para Matemática Aplicada © 2024
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

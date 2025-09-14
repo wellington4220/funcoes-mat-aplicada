@@ -2,39 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design System para Site de Matemática - Wellgingthon ADS IFPE */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cores base */
+    --background: 240 20% 98%;
+    --foreground: 240 20% 15%;
 
+    /* Cartões e superfícies */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Cores das funções matemáticas */
+    --func-affine: 0 85% 60%;        /* Vermelho para Afim */
+    --func-constant: 220 85% 55%;    /* Azul para Constante */
+    --func-quadratic: 30 95% 60%;    /* Laranja para Quadrática */
+    --func-exponential: 270 80% 65%; /* Roxo para Exponencial */
+    --func-logarithmic: 140 70% 50%; /* Verde para Logarítmica */
+    --func-modular: 320 75% 65%;     /* Rosa para Modular */
+    --func-trigonometric: 200 80% 55%; /* Azul-ciano para Trigonométrica */
+    --func-root: 60 70% 55%;         /* Amarelo-verde para Raiz */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Cores do sistema */
+    --primary: 270 80% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 60% 80%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: 240 20% 95%;
+    --secondary-foreground: 240 20% 20%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 240 10% 92%;
+    --muted-foreground: 240 10% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 30 95% 60%;
+    --accent-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Gradientes */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-func: linear-gradient(90deg, hsl(var(--func-quadratic)), hsl(var(--func-exponential)));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(240 20% 98%));
+
+    /* Sombras com cores temáticas */
+    --shadow-primary: 0 10px 30px -5px hsl(var(--primary) / 0.3);
+    --shadow-accent: 0 8px 25px -8px hsl(var(--accent) / 0.4);
+    --shadow-func: 0 5px 20px -5px hsl(var(--func-quadratic) / 0.2);
+
+    --border: 240 15% 88%;
+    --input: 240 15% 92%;
+    --ring: 270 80% 65%;
 
     --radius: 0.5rem;
 
@@ -101,5 +123,99 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer components {
+  /* Botões especiais */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:scale-105 transform transition-all duration-300;
+    background: var(--gradient-hero);
+    box-shadow: var(--shadow-primary);
+  }
+  
+  .btn-func {
+    @apply hover:scale-105 transform transition-all duration-300;
+    box-shadow: var(--shadow-func);
+  }
+
+  /* Cards de função */
+  .func-card {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:scale-105;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-func);
+  }
+
+  /* Animações de entrada */
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fadeInDelay 0.8s ease-out forwards;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.7s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .func-quadratic { color: hsl(var(--func-quadratic)); }
+  .func-modular { color: hsl(var(--func-modular)); }
+  .func-exponential { color: hsl(var(--func-exponential)); }
+  .func-trigonometric { color: hsl(var(--func-trigonometric)); }
+  .func-root { color: hsl(var(--func-root)); }
+  .func-affine { color: hsl(var(--func-affine)); }
+  .func-constant { color: hsl(var(--func-constant)); }
+  .func-logarithmic { color: hsl(var(--func-logarithmic)); }
+}
+
+/* Keyframes para animações */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDelay {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
