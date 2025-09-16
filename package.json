@@ -72,6 +72,7 @@
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
     "lovable-tagger": "^1.1.9",
     "postcss": "^8.5.6",
@@ -79,5 +80,18 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
-  }
+  },
+  "description": "**URL**: https://lovable.dev/projects/96d43149-c5de-41f2-b341-ed390ffbf248",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wellington4220/funcoes-com-wellgingthon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wellington4220/funcoes-com-wellgingthon/issues"
+  },
+  "homepage": "https://github.com/wellington4220/funcoes-com-wellgingthon#readme"
 }

@@ -40,11 +40,11 @@ const Index = () => {
         <div className="container text-center">
           <p className="text-muted-foreground">
             Desenvolvido com ❤️ por{" "}
-            <span className="font-semibold text-primary">Wellgingthon</span>
+            <span className="font-semibold text-primary">Wellington</span>
             {" "}- ADS IFPE Paulista, Pernambuco
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            Projeto educativo para Matemática Aplicada © 2024
+            Projeto educativo para Matemática Aplicada © 2025
           </p>
         </div>
       </footer>

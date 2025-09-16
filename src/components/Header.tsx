@@ -25,7 +25,7 @@ export const Header = ({ activeSection, onNavigate }: HeaderProps) => {
               Funções Matemáticas
             </h1>
             <p className="text-xs text-muted-foreground">
-              por Wellgingthon - ADS IFPE
+              por Wellington - ADS IFPE
             </p>
           </div>
         </div>
